@@ -64,6 +64,16 @@ public class DemoSession {
             System.out.println(n+" khong phai nguyen to");
         }
         // Nhập 1 mảng n số nguyên, tìm các số nguyên tố trong mảng
+        int arrSNT[] = new int[n];
+        for(int i=0;i<arrSNT.length;i++){
+            arrSNT[i] = sc.nextInt();
+        }
+
+        for(int a: arrSNT){
+            if(checkSNT(a)){
+                System.out.println("SNT: "+a);
+            }
+        }
     }
 
     public static boolean checkSNT(int a){
