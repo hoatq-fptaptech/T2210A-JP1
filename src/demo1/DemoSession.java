@@ -86,4 +86,9 @@ public class DemoSession {
         }
         return true;
     }
+// Bài tập
+//    Viết các chương trình thực hiện các công việc sau:
+//    1. Nhập 1 số nguyên n, kiểm tra nó có phải số hoàn hảo hay không.
+//    2. Nhập 1 số nguyên n, tìm số có vị trí thứ n của dãy Fibonaci.
+//    3. Nhập 2 số nguyên, tìm ước chung lớn nhất và bội chung nhỏ nhất của 2 số đó.
 }
