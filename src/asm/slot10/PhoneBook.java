@@ -84,12 +84,13 @@ public class PhoneBook extends Phone{
 //            }
 //        }
 
-        Collections.sort(phoneList, new Comparator<PhoneNumber>() {
-            @Override
-            public int compare(PhoneNumber o1, PhoneNumber o2) {
-                return o1.getName().compareTo(o2.getName());
-            }
-        });
+//        Collections.sort(phoneList, new Comparator<PhoneNumber>() {
+//            @Override
+//            public int compare(PhoneNumber o1, PhoneNumber o2) {
+//                return o1.getName().compareTo(o2.getName());
+//            }
+//        });
 
+        Collections.sort(phoneList, (o1,o2)-> o1.getName().compareTo(o2.getName())) ;
     }
 }
