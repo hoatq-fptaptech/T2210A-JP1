@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane fx:controller="javafx.HomeController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text layoutX="179.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello World!">
+         <font>
+            <Font size="47.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtName" layoutX="30.0" layoutY="110.0" prefHeight="35.0" prefWidth="207.0" promptText="Name">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtEmail" layoutX="30.0" layoutY="183.0" prefHeight="35.0" prefWidth="207.0" promptText="Email">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtTel" layoutX="30.0" layoutY="248.0" prefHeight="35.0" prefWidth="207.0" promptText="Telephone">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <Button onAction="#submit" layoutX="135.0" layoutY="315.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="101.0" style="-fx-background-color: red;" text="Submit" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Text fx:id="txtOut" layoutX="350.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="197.21630859375">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+   </children>
+</Pane>
