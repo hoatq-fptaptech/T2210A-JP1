@@ -30,6 +30,9 @@ public class HomeController {
             tellList.add(tel);
             String sv = "\n"+name+"\n"+email+"\n"+tel;
             txtOut.setText(txtOut.getText()+sv);
+            txtName.clear();
+            txtEmail.clear();
+            txtTel.clear();
         }catch (Exception e){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText(e.getMessage());
