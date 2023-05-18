@@ -34,4 +34,8 @@ public final class Student {
     public void setTel(String tel) {
         this.tel = tel;
     }
+
+    public String toString(){
+        return name+"-"+email;
+    }
 }
