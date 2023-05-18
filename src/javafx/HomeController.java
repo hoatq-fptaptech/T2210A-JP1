@@ -1,7 +1,10 @@
 package javafx;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
@@ -12,31 +15,29 @@ public class HomeController {
     public TextField txtName;
     public TextField txtEmail;
     public TextField txtTel;
-    public Text txtOut;
 
-    public ArrayList<String> emailList= new ArrayList<>();
-    public ArrayList<String> tellList= new ArrayList<>();
+
+    public static ObservableList<Student> listStudents = FXCollections.observableArrayList();
+    public ListView<Student> lv;
 
     public void submit(ActionEvent actionEvent) {
         try {
             String name = txtName.getText();
             String email = txtEmail.getText();
             String tel = txtTel.getText();
-            if(emailList.contains(email))
-                throw new Exception("Email đã tồn tại");
-            if(tellList.contains(tel))
-                throw new Exception("Tel đã tồn tại");
-            emailList.add(email);
-            tellList.add(tel);
-            String sv = "\n"+name+"\n"+email+"\n"+tel;
-            txtOut.setText(txtOut.getText()+sv);
-            txtName.clear();
-            txtEmail.clear();
-            txtTel.clear();
+            for (Student s: listStudents){
+                if(s.getName().equals(name))
+                    throw new Exception("Tên SV đã tồn tại");
+                if(s.getEmail().equals(email))
+                    throw new Exception("Email đã tồn tại");
+            }
+            Student sv = new Student(name,email,tel);
+            listStudents.add(sv);
+            lv.setItems(listStudents);
         }catch (Exception e){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText(e.getMessage());
             alert.show();
         }
     }
-}
+}// ListView
