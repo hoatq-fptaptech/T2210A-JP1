@@ -7,31 +7,16 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.HomeController">
    <children>
-      <Text layoutX="179.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello World!">
+      <Text layoutX="179.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student List">
          <font>
             <Font size="47.0" />
          </font>
       </Text>
-      <TextField fx:id="txtName" layoutX="30.0" layoutY="110.0" prefHeight="35.0" prefWidth="207.0" promptText="Name">
+      <ListView fx:id="lv" layoutX="35.0" layoutY="110.0" prefHeight="241.0" prefWidth="534.0" />
+      <Button onAction="#goToForm" layoutX="455.0" layoutY="34.0" mnemonicParsing="false" style="-fx-background-color: red;" text="Create student" textFill="WHITE">
          <font>
             <Font size="15.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="txtEmail" layoutX="30.0" layoutY="183.0" prefHeight="35.0" prefWidth="207.0" promptText="Email">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="txtTel" layoutX="30.0" layoutY="248.0" prefHeight="35.0" prefWidth="207.0" promptText="Telephone">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </TextField>
-      <Button layoutX="135.0" layoutY="315.0" mnemonicParsing="false" onAction="#submit" prefHeight="35.0" prefWidth="101.0" style="-fx-background-color: red;" text="Submit" textFill="WHITE">
-         <font>
-            <Font size="16.0" />
          </font>
       </Button>
-      <ListView onMouseClicked="#editStudent" fx:id="lv" layoutX="275.0" layoutY="110.0" prefHeight="241.0" prefWidth="294.0" />
    </children>
 </Pane>
