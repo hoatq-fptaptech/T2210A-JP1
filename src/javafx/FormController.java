@@ -28,12 +28,6 @@ public class FormController {
             String name = txtName.getText();
             String email = txtEmail.getText();
             String tel = txtTel.getText();
-            for (Student s: HomeController.listStudents){
-                if(s.getName().equals(name))
-                    throw new Exception("Tên SV đã tồn tại");
-                if(s.getEmail().equals(email))
-                    throw new Exception("Email đã tồn tại");
-            }
             Student sv = new Student(name,email,tel);
 //            HomeController.listStudents.add(sv);
             // add to db

@@ -1,10 +1,14 @@
 package javafx;
 
+import javafx.scene.control.Button;
+
 public final class Student {
     private Integer id;
     private String name;
     private String email;
     private String tel;
+
+    private Button edit;
 
     public Student(String name, String email, String tel) {
         this.name = name;
@@ -17,6 +21,11 @@ public final class Student {
         this.name = name;
         this.email = email;
         this.tel = tel;
+        this.edit = new Button("Edit");
+    }
+
+    public Button getEdit() {
+        return edit;
     }
 
     public Integer getId() {

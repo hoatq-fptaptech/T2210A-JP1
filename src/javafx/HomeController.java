@@ -8,9 +8,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -25,9 +24,13 @@ import java.util.ResourceBundle;
 
 public class HomeController implements Initializable {
 
-    public static ObservableList<Student> listStudents = FXCollections.observableArrayList();
-    public ListView<Student> lv;
     public static Student editStudent;
+    public TableView<Student> tbV;
+    public TableColumn<Student,Integer> tcId;
+    public TableColumn<Student,String> tcName;
+    public TableColumn<Student,String> tcEmail;
+    public TableColumn<Student,String> tcTel;
+    public TableColumn<Student,Button> tcAction;
 
     public void goToForm(ActionEvent actionEvent) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("form.fxml"));
@@ -36,7 +39,11 @@ public class HomeController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-       // lv.setItems(listStudents);
+        tcId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        tcName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        tcEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        tcTel.setCellValueFactory(new PropertyValueFactory<>("tel"));
+        tcAction.setCellValueFactory(new PropertyValueFactory<>("edit"));
         try{
             Connection conn = new Connector().getConn();
 
@@ -50,11 +57,10 @@ public class HomeController implements Initializable {
                 String name = rs.getString("name");
                 String email = rs.getString("email");
                 String tel = rs.getString("tel");
-                Student s = new Student(name,email,tel);
+                Student s = new Student(id,name,email,tel);
                 list.add(s);
             }
-            lv.setItems(list);
-            lv.refresh();
+            tbV.setItems(list);
         }catch (Exception e){
             System.out.println("error:"+e.getMessage());
         }
