@@ -1,5 +1,6 @@
 package javafx;
 
+import database.Connector;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -28,10 +29,6 @@ public class HomeController implements Initializable {
     public ListView<Student> lv;
     public static Student editStudent;
 
-    private final static String connectionString = "jdbc:mysql://localhost:3306/t2210a_jp";
-    private final static String user = "root";
-    private final static String pwd = "root";// xampp: ""  mamp: "root"
-
     public void goToForm(ActionEvent actionEvent) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("form.fxml"));
         Main.mainStage.setScene(new Scene(root,600,400));
@@ -41,8 +38,7 @@ public class HomeController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
        // lv.setItems(listStudents);
         try{
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection(connectionString,user,pwd);
+            Connection conn = new Connector().getConn();
 
             // query
             Statement stt = conn.createStatement();

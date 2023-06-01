@@ -1,6 +1,7 @@
 package javafx;
 
 public final class Student {
+    private Integer id;
     private String name;
     private String email;
     private String tel;
@@ -9,6 +10,21 @@ public final class Student {
         this.name = name;
         this.email = email;
         this.tel = tel;
+    }
+
+    public Student(Integer id, String name, String email, String tel) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.tel = tel;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
