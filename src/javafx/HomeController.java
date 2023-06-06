@@ -1,5 +1,6 @@
 package javafx;
 
+import daopattern.StudentRepository;
 import database.Connector;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -45,21 +46,8 @@ public class HomeController implements Initializable {
         tcTel.setCellValueFactory(new PropertyValueFactory<>("tel"));
         tcAction.setCellValueFactory(new PropertyValueFactory<>("edit"));
         try{
-            Connection conn = new Connector().getConn();
-
-            // query
-            Statement stt = conn.createStatement();
-            String sql = "select * from students";
-            ResultSet rs = stt.executeQuery(sql);
             ObservableList<Student> list = FXCollections.observableArrayList();
-            while (rs.next()){
-                int id = rs.getInt("id");
-                String name = rs.getString("name");
-                String email = rs.getString("email");
-                String tel = rs.getString("tel");
-                Student s = new Student(id,name,email,tel);
-                list.add(s);
-            }
+            list.addAll(StudentRepository.getInstance().getAll());
             tbV.setItems(list);
         }catch (Exception e){
             System.out.println("error:"+e.getMessage());
