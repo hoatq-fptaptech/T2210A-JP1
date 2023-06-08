@@ -2,6 +2,8 @@ package javafx;
 
 import daopattern.StudentRepository;
 import database.Connector;
+import enums.RepositoryType;
+import factory.RepositoryFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -32,7 +34,7 @@ public class FormController {
             Student sv = new Student(name,email,tel);
 //            HomeController.listStudents.add(sv);
             // add to db
-            if(StudentRepository.getInstance().create(sv))
+            if(RepositoryFactory.createRepositoryInstance(RepositoryType.STUDENT).create(sv))
                 backToList(null);
             else
                 throw new Exception("Không thể tạo mới sinh viên");
