@@ -2,12 +2,15 @@ package javafx;
 
 import javafx.scene.control.Button;
 
+import java.sql.Date;
+
 public final class Student {
     private Integer id;
     private String name;
     private String email;
     private String tel;
 
+    private Date birthday;
     private Button edit;
 
     public Student(String name, String email, String tel) {
