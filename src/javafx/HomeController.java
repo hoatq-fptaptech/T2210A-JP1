@@ -34,6 +34,11 @@ public class HomeController implements Initializable {
     public TableColumn<Student,String> tcEmail;
     public TableColumn<Student,String> tcTel;
     public TableColumn<Student,Button> tcAction;
+    public Text txtMin;
+    public Text txtSec;
+
+    private Integer x = 10;
+    private Integer y = 0;
 
     public void goToForm(ActionEvent actionEvent) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("form.fxml"));
@@ -54,5 +59,28 @@ public class HomeController implements Initializable {
         }catch (Exception e){
             System.out.println("error:"+e.getMessage());
         }
+
+        new Thread(()->{
+            boolean flag = true;
+            while (flag){
+                String m = x>=10?x.toString():"0"+x;
+                String s = y>=10?y.toString():"0"+y;
+                txtMin.setText(m);
+                txtSec.setText(s);
+                y--;
+                if(y <0){
+                   y = 59;
+                   x--;
+                }
+                if(x<0){
+                    flag = false;
+                }
+                try{
+                    Thread.sleep(1000);
+                }catch (Exception e){}
+            }
+
+        }).start();
+
     }
 }

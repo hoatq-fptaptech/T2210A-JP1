@@ -28,5 +28,20 @@
             <TableColumn fx:id="tcAction" minWidth="0.0" prefWidth="76.0" text="Action" />
         </columns>
       </TableView>
+      <Text fx:id="txtMin" layoutX="14.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Text>
+      <Text layoutX="55.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text=":">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Text>
+      <Text fx:id="txtSec" layoutX="71.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Text>
    </children>
 </Pane>
