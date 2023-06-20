@@ -23,6 +23,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class HomeController implements Initializable {
@@ -36,6 +37,9 @@ public class HomeController implements Initializable {
     public TableColumn<Student,Button> tcAction;
     public Text txtMin;
     public Text txtSec;
+    public Text lbPage;
+    public Button btnCreate;
+    public ComboBox<Locale> cbLang;
 
     private Integer x = 10;
     private Integer y = 0;
@@ -45,8 +49,22 @@ public class HomeController implements Initializable {
         Main.mainStage.setScene(new Scene(root,600,400));
     }
 
+    private void initMessages(){
+        ResourceBundle rb = ResourceBundle.getBundle("resources.messages");
+        lbPage.setText(rb.getString("student_list"));
+        btnCreate.setText(rb.getString("create_student"));
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        // set list items for cbLang
+        ObservableList<Locale> langs = FXCollections.observableArrayList();
+        langs.add(new Locale("vi","VN"));
+        langs.add(new Locale("en","VN"));
+        cbLang.setItems(langs);
+        cbLang.setValue(Locale.getDefault());
+
+        initMessages();
         tcId.setCellValueFactory(new PropertyValueFactory<>("id"));
         tcName.setCellValueFactory(new PropertyValueFactory<>("name"));
         tcEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
@@ -82,5 +100,12 @@ public class HomeController implements Initializable {
 
         }).start();
 
+    }
+
+    public void chooseLang(ActionEvent actionEvent) throws Exception {
+        Locale ch = cbLang.getValue();
+        Locale.setDefault(ch);
+        Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
+        Main.mainStage.setScene(new Scene(root,600,400));
     }
 }
